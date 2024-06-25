@@ -1,28 +1,33 @@
 "use strict";
-// 
-//Q_86 create a function to find text true/false
-function detectJS(text) {
-    return text.includes("Javascript");
+//Q_91 make an array of three favorite fruits
+let favFruits = ["mango", "kiwi", "pear"];
+favFruits.push("banana"); //add one at the end of array.push()
+console.log(favFruits);
+//Q_92 make a function of an array remove one at the last.pop()
+function removeLast(str) {
+    return str.pop();
 }
-console.log(detectJS(`I love to learn Javascript`));
-//Q_87 make a function takes first ten characters from text
-function tenCharacters(text) {
-    return text.substring(0, 10);
+let things = ["book", "glass", "table", "car"];
+console.log(removeLast(things));
+console.log(things);
+//Q_93 make an array of fruits
+//make a function index of banana
+let myFruits = ["apple", "banana", "pear", "peach"];
+function indexArray(fruits) {
+    let index = fruits.indexOf("banana");
+    fruits[index] = "mango";
 }
-console.log(tenCharacters(`Hello Javascript !`));
-//Q_88 make a function round a decimal number to a whole number
-function roundNumber(num) {
-    return Math.round(num);
+indexArray(myFruits);
+console.log(myFruits);
+//Q_94 make an array of some words
+let words = ["book", "table", "wardrobe", "doubleBed"];
+//use .map() method for length of words
+let lengths = words.map((word) => word.length);
+console.log(lengths);
+//Q_95 make an array of numbers
+let myNumbers = [2, 5, 6, 34, 76, 98];
+//.filter method
+function filterNumber(numbers) {
+    return numbers.filter((number) => number > 10);
 }
-console.log(roundNumber(34.87));
-//Q_89 function change string into number
-function changeString(str) {
-    return parseFloat(str);
-}
-console.log(changeString("374.90"));
-//Q_90 function check if value is not a number
-function check(valueType) {
-    return isNaN(valueType);
-}
-console.log(check("Hello!"));
-console.log(check("35"));
+console.log(filterNumber(myNumbers));

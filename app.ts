@@ -1,31 +1,38 @@
-// 
-//Q_86 create a function to find text true/false
-function detectJS(text :string):boolean{
-  return text.includes("Javascript");
-}
-console.log(detectJS(`I love to learn Javascript`));
 
-//Q_87 make a function takes first ten characters from text
-function tenCharacters(text :string):string{
-  return text.substring(0 , 10);
-}
-console.log(tenCharacters(`Hello Javascript !`));
+//Q_91 make an array of three favorite fruits
+let favFruits:string[] = ["mango", "kiwi", "pear"]
+  favFruits.push("banana");//add one at the end of array.push()
+  console.log(favFruits);
 
-//Q_88 make a function round a decimal number to a whole number
-function roundNumber(num:number):number{
-  return Math.round(num);
+//Q_92 make a function of an array remove one at the last.pop()
+function removeLast(str:string[]){
+  return str.pop();
 }
-console.log(roundNumber(34.87));
+ let things = ["book", "glass", "table","car"]
+    console.log(removeLast(things));
+    console.log(things);
 
-//Q_89 function change string into number
-function changeString(str:string):number{
-  return parseFloat(str);
+//Q_93 make an array of fruits
+//make a function index of banana
+let myFruits:string[] = ["apple", "banana", "pear", "peach"]
+function indexArray(fruits: string[]){
+  let index = fruits.indexOf("banana");
+     fruits[index] = "mango";
 }
-console.log(changeString("374.90")); 
 
-//Q_90 function check if value is not a number
-function check(valueType:any):boolean{
-  return isNaN(valueType);
+indexArray(myFruits);
+console.log(myFruits);
+
+//Q_94 make an array of some words
+let words :string[] = ["book", "table","wardrobe", "doubleBed"]
+//use .map() method for length of words
+let lengths :number[] = words.map((word )=>word.length);
+console.log(lengths);
+
+//Q_95 make an array of numbers
+let myNumbers:number[] = [2,5,6,34,76,98]
+//.filter method
+function filterNumber(numbers:number[]):number[]{
+  return numbers.filter((number) =>number > 10);
 }
-console.log(check("Hello!"));
-console.log(check("35"));
+console.log(filterNumber(myNumbers));
