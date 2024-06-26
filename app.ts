@@ -1,38 +1,81 @@
 
-//Q_91 make an array of three favorite fruits
-let favFruits:string[] = ["mango", "kiwi", "pear"]
-  favFruits.push("banana");//add one at the end of array.push()
-  console.log(favFruits);
-
-//Q_92 make a function of an array remove one at the last.pop()
-function removeLast(str:string[]){
-  return str.pop();
+// 26/6/24
+//WEDNESDAY CLASS 2_5
+//Async function promises
+//RESOLVE HOGA .then()
+//REJECT HOGA .catch()
+const func = () =>{
+  return new Promise((resolve , reject) => {
+    resolve(`I am resolved`);
+  })
 }
- let things = ["book", "glass", "table","car"]
-    console.log(removeLast(things));
-    console.log(things);
+func()
+.then((resolve) => {
+  console.log(resolve);
+})
+.catch((error) =>{
+  console.log(error);
+});
 
-//Q_93 make an array of fruits
-//make a function index of banana
-let myFruits:string[] = ["apple", "banana", "pear", "peach"]
-function indexArray(fruits: string[]){
-  let index = fruits.indexOf("banana");
-     fruits[index] = "mango";
+ //let isVictory = true;
+// let cricket = () =>{
+//   return new Promise((resolve , reject) => {
+// if(isVictory){
+//   resolve(`We Won !`)
+// }else{
+//   reject(`we Lost !`)
+// }
+//   });
+// }
+// cricket().then((response) =>{
+//   console.log(response);
+// })
+// cricket().catch((error) => {
+//   console.log(error)
+//}) //CHAINING IN PROMISES=> LINK TO EACH OTHER
+let isVictory = true;
+let cricket = () =>{
+  return new Promise((resolve , reject) => {
+if(isVictory){
+  resolve(`Match in progress`)
+  setTimeout(() =>{
+    resolve(`We Won !`)
+  }, 2000);
+}else{
+  setTimeout(() =>{
+    reject(`Tum se na ho payega`)
+  } ,2500)
 }
-
-indexArray(myFruits);
-console.log(myFruits);
-
-//Q_94 make an array of some words
-let words :string[] = ["book", "table","wardrobe", "doubleBed"]
-//use .map() method for length of words
-let lengths :number[] = words.map((word )=>word.length);
-console.log(lengths);
-
-//Q_95 make an array of numbers
-let myNumbers:number[] = [2,5,6,34,76,98]
-//.filter method
-function filterNumber(numbers:number[]):number[]{
-  return numbers.filter((number) =>number > 10);
+  })
 }
-console.log(filterNumber(myNumbers));
+cricket().then((response) =>{
+  console.log(response);
+  
+})
+
+cricket().catch((err) => {
+  console.log(err)
+});
+
+//.catch() me bhi response ko return karwa sakte hn
+cricket().catch((error) =>{
+  console.log(error)
+  return `Qudrat ka nizam`
+})
+.finally(() =>{
+  console.log(`Flight pakro`)
+})
+//ASYNC AWAIT FUNCTION=> TO RESOLVE CHAIN HELL
+async function getReesult() {
+ try{
+  const data = await cricket();
+  console.log(data);
+}
+catch(err) {
+  console.log(err);
+}
+finally{
+  console.log(`Flight pakro`);
+}
+}
+getReesult();
