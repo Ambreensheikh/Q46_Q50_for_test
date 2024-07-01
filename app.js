@@ -1,89 +1,55 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 // 
-//WEDNESDAY CLASS 2_5
-//Async function promises
-//RESOLVE HOGA .then()
-//REJECT HOGA .catch()
-const func = () => {
-    return new Promise((resolve, reject) => {
-        resolve(`I am resolved`);
-    });
-};
-func()
-    .then((resolve) => {
-    console.log(resolve);
-})
-    .catch((error) => {
-    console.log(error);
-});
-//let isVictory = true;
-// let cricket = () =>{
-//   return new Promise((resolve , reject) => {
-// if(isVictory){
-//   resolve(`We Won !`)
-// }else{
-//   reject(`we Lost !`)
-// }
-//   });
-// }
-// cricket().then((response) =>{
-//   console.log(response);
-// })
-// cricket().catch((error) => {
-//   console.log(error)
-//}) //CHAINING IN PROMISES=> LINK TO EACH OTHER
-let isVictory = true;
-let cricket = () => {
-    return new Promise((resolve, reject) => {
-        if (isVictory) {
-            resolve(`Match in progress`);
-            setTimeout(() => {
-                resolve(`We Won !`);
-            }, 2000);
-        }
-        else {
-            console.log(`Match in progress !`);
-        }
-    });
-};
-cricket().then((response) => {
-    console.log(response);
-    return `Man of the match Babar`;
-});
-cricket().then((res) => {
-    console.log(res);
-});
-cricket().catch((err) => { console.log(err); });
-//.catch() me bhi response ko return karwa sakte hn
-cricket().catch((error) => {
-    console.log(error);
-    return `Qudrat ka nizam`;
-})
-    .finally(() => {
-    console.log(`Flight pakro`);
-});
-//ASYNC AWAIT FUNCTION=> TO RESOLVE CHAIN HELL
-function getReesult() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const data = yield cricket();
-            console.log(data);
-        }
-        catch (err) {
-            console.log(err);
-        }
-        finally {
-            console.log(`Flight pakro`);
-        }
-    });
+//Q_106 leap year comparison operator
+function leapYear(year) {
+    return (year % 4 === 0 && year % 100 != 0) || (year % 400 === 0);
 }
-getReesult();
+let year = 2020;
+if (leapYear(year)) {
+    console.log(`${year} is true`);
+}
+else {
+    console.log(`${year} is false`);
+}
+//Q_107 conditional logical operator
+let number = 6;
+if (number % 2 === 0 && number % 3 === 0) {
+    console.log(`Number is divisible by 2 and 3`);
+}
+else {
+    console.log(`Number is not divisible by 2 and 3`);
+}
+//Q_108 comparison in strings
+function ignoreCase(str1, str2) {
+    return (str1.toUpperCase() === str2.toUpperCase());
+}
+let string1 = "Hashir";
+let string2 = "hashir";
+console.log(ignoreCase(string1, string2));
+//Q109 conditional statement
+let currentTime = new Date();
+let currentHour = currentTime.getHours();
+if (currentHour > 12) {
+    console.log(currentTime, "Good morning");
+}
+//Q_110 make function assign Grade
+function assignGrade(score) {
+    if (score >= 90) {
+        return "Grade A";
+    }
+    else if (score >= 80) {
+        return "Grade B";
+    }
+    else if (score >= 70) {
+        return "Grade C";
+    }
+    else if (score >= 60) {
+        return "Grade D";
+    }
+    else {
+        return "Failed";
+    }
+}
+let Studentscore = 85;
+let Grade = assignGrade(Studentscore);
+console.log(`Student score is ${Studentscore} ,and  student Grade is ${Grade}`);
